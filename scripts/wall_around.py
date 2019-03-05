@@ -41,7 +41,10 @@ class WallAround():
             else:
                 e = 50 - self.sensor_values.left_side
                 data.angular.z = e * math.pi / 180.0
-
+            rospy.loginfo("Left Z |  %.2f  %.2f",
+                          self.sensor_values.left_side,
+                          data.angular.z)
+                
 
             self.cmd_vel.publish(data)
             rate.sleep()
